@@ -70,13 +70,14 @@ class MenuController
       entry = gets.chomp.to_i
       if (entry == 0) || ( entry > address_book.entries.length )
          error_message( "Record #{entry} does not exist" )
-         main_menu
-      end   
-      puts address_book.entries[entry-1].to_s
-      puts
-      puts "Press any key to continue"
-      gets
-      system "clear"
+         view_entry
+      else
+         puts address_book.entries[entry-1].to_s
+         puts
+         puts "Press any key to continue"
+         gets
+         system "clear"
+      end
    end
    
    def error_message ( message )
