@@ -54,7 +54,6 @@ class MenuController
      end
    end
  
-
    def remove_all
       puts "Do you really want to remove all entries (Y/N)"
       selection=gets.chomp
@@ -129,10 +128,8 @@ class MenuController
    def search_entries
      print "Search by name: "
      name = gets.chomp
-     # #10
      match = address_book.binary_search(name)
      system "clear"
-     # #11
      if match
        puts match.to_s
        search_submenu(match)
@@ -142,7 +139,6 @@ class MenuController
    end
  
    def search_submenu(entry)
-     # #12
      puts "\nd - delete entry"
      puts "e - edit this entry"
      puts "m - return to main menu"
