@@ -42,7 +42,7 @@ class MenuController
          main_menu
        when 6
          system "clear"
-         nuke
+         remove_all
          main_menu
        when 7
          puts "Good-bye!"
@@ -54,13 +54,15 @@ class MenuController
      end
    end
  
-   def nuke
+
+   def remove_all
       puts "Do you really want to remove all entries (Y/N)"
       selection=gets.chomp
       case selection.upcase
        when 'Y'
-         address_book.entries.clear
-         system "clear"
+         address_book.nuke
+         system "clear" 
+         puts "All entries deleted."
          main_menu
        when 'N'
          system "clear" 
@@ -68,10 +70,10 @@ class MenuController
        else
          system "clear"
          puts "Sorry, that is not a valid input"
-         nuke
+         remove_all
       end
    end
-   
+
    def view_all_entries
       address_book.entries.each do |entry|
          system "clear"
